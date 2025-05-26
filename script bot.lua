@@ -1,4 +1,4 @@
-local keyRequired = "GIOVIP2025" -- <<< THAY ĐỔI key tại đây
+local keyRequired = "Key_DINOVIPORO" 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
@@ -6,11 +6,9 @@ local CoreGui = game:GetService("CoreGui")
 local RunService = game:GetService("RunService")
 local camera = workspace.CurrentCamera
 
--- GUI Chính
 local gui = Instance.new("ScreenGui", CoreGui)
 gui.Name = "MainScriptUI"
 
--- GUI Nhập Key
 local keyFrame = Instance.new("Frame", gui)
 keyFrame.Size = UDim2.new(0, 300, 0, 150)
 keyFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
@@ -37,11 +35,9 @@ submitBtn.Font = Enum.Font.SourceSansBold
 submitBtn.TextScaled = true
 Instance.new("UICorner", submitBtn)
 
--- Hàm Mở GUI Chính (Teleport + Aimbot)
 local function launchScript()
 	keyFrame:Destroy()
 
-	-- === Aimbot ===
 	local aimBtn = Instance.new("TextButton", gui)
 	aimBtn.Size = UDim2.new(0, 150, 0, 50)
 	aimBtn.Position = UDim2.new(0.5, -75, 0.9, -25)
@@ -85,7 +81,6 @@ local function launchScript()
 		end
 	end)
 
-	-- === Teleport Menu ===
 	local locations = {
 		["Fort"] = Vector3.new(100, 10, 200),
 		["Castle"] = Vector3.new(300, 10, 100),
@@ -136,7 +131,6 @@ local function launchScript()
 	end)
 end
 
--- Kiểm tra key khi ấn Submit
 submitBtn.MouseButton1Click:Connect(function()
 	if keyBox.Text == keyRequired then
 		launchScript()
